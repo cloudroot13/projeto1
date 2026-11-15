@@ -1,0 +1,28 @@
+:root { color-scheme: light; color: #183454; background: #fff; }
+body { background: #fff; }
+.site { --ink: #142d4e; --muted: #526781; --line: #d6e3f1; --green: #1764d8; --cyan: #1686d9; }
+.site-header { background: #ffffffed; box-shadow: 0 4px 24px #163b6808; }
+.site .button-primary { color: #fff !important; background: #1764d8; border-color: #1764d8; }
+.site .button-primary:hover { background: #0d50b7; }
+.site :is(.button-outline, .button-quiet, .text-link, .source-link) { color: #175aba !important; }
+.site .brand b span { color: #1764d8; }
+.site .top-nav button[aria-current=page], .site .top-nav button:hover { color: #1054ba; }
+.site .hero h1 em, .site .page-title h1 em, .site .closing h2 em, .site .how-heading h2 em { color: #1764d8; }
+.site .art-glow { background: #438fff24; }
+.site .hero-note i, .site .lab-controls > span i, .site .simulation-status > span i { box-shadow: 0 0 9px #1764d844; }
+.site .scene-frame { background: radial-gradient(ellipse at center, #e4efff, #f7faff); }
+.site .hero-art .scene-frame { background: transparent; }
+.site .scene-hud > span, .site .scene-info-card, .site .scene-part-label { background: #fffffff2; color: #183454; }
+.site :is(.scene-mode-switch, .scene-door-switch, .scene-tile-switch) { background: #f0f6ff !important; color: #175aba !important; border-color: #abc7ed !important; }
+.site :is(.scene-mode-switch, .scene-door-switch, .scene-tile-switch):hover { background: #dceaff !important; }
+.site input { accent-color: #1764d8; }
+.site .recharts-default-tooltip { background: #fff !important; color: #183454 !important; border-color: #d1dfef !important; box-shadow: 0 8px 24px #163b6814; }
+.site .recharts-tooltip-label { color: #183454; }
+.site .solution-summary .caution { background: #fff9eb; color: #775717; border-color: #d8ad46; }
+.site .footnote { color: #775717 !important; }
+.site ::selection { background: #1764d833; color: #102b50; }
+@media (hover: hover) and (pointer: fine) {
+  .site .source-link:hover { color: #0c4292 !important; }
+  .site :is(.place, .component-grid article, .dossier-grid article, .lab-info-grid article, .editorial-chart, .paper, .metric):hover { background: #edf5ff; border-color: #a3c2eb; }
+  .site .brand:hover .brand-symbol { box-shadow: 0 0 25px #1764d822; }
+}

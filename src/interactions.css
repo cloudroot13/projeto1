@@ -1,0 +1,73 @@
+/* Shared interaction layer, loaded after the existing visual identity. */
+.site {
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+.site main { animation: page-enter .5s var(--ease-out) both; }
+.site button, .site a { -webkit-tap-highlight-color: transparent; }
+.site button { touch-action: manipulation; }
+.site button:disabled { cursor: not-allowed; }
+.site button svg { transition: transform .3s var(--ease-out); }
+.site button:active:not(:disabled) { transform: translateY(1px) scale(.98); }
+.site:is(.button-primary, .button-outline, .button-quiet, .nav-cta) {
+  transition: transform .3s var(--ease-out), background .25s, border-color .25s, box-shadow .3s;
+}
+.site .button-primary { box-shadow: 0 4px 20px #1764d812; }
+.top-nav > button:not(.nav-cta) { position: relative; }
+.top-nav > button:not(.nav-cta)::before {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--green); transform: scaleX(0); transform-origin: left;
+  transition: transform .3s var(--ease-out);
+}
+.site .brand-symbol { transition: transform .4s var(--ease-out), box-shadow .3s; }
+.site:is(.place, .step, .component-grid article, .dossier-grid article, .lab-info-grid article, .editorial-chart, .paper, .metric) {
+  transition: background .3s, border-color .3s, box-shadow .3s, transform .35s var(--ease-out);
+}
+.place-icon, .place-arrow, .step-top svg {
+  transition: transform .4s var(--ease-out), color .3s, background .3s, box-shadow .3s;
+}
+.site .hero-copy > * { animation: content-enter .8s var(--ease-out) both; }
+.site .hero-copy > :nth-child(2) { animation-delay: .08s; }
+.site .hero-copy > :nth-child(3) { animation-delay: .16s; }
+.site .hero-copy > :nth-child(4) { animation-delay: .24s; }
+.site .hero-copy > :nth-child(5) { animation-delay: .32s; }
+.hero-art .art-glow { animation: energy-breathe 7s ease-in-out infinite; }
+.hero-scroll > svg { animation: scroll-nudge 2.6s ease-in-out infinite; }
+.site .scroll-reveal {
+  opacity: 0; translate: 0 22px;
+  transition: opacity .7s var(--ease-out), translate .7s var(--ease-out);
+}
+.site .scroll-reveal.is-visible { opacity: 1; translate: 0 0; }
+.site input[type='range'] { cursor: pointer; }
+.site input[type='range']:focus-visible { outline-offset: 7px; }
+.site:is(.parameter-panel, .results-panel):focus-within { border-color: #1764d8; }
+.site a { text-underline-offset: 4px; }
+.site::selection { background: #1764d840; color: #1764d8; }
+
+@media (hover: hover) and (pointer: fine) {
+  .site .button-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px #1764d830; }
+  .site:is(.button-outline, .button-quiet, .nav-cta):hover { transform: translateY(-2px); border-color: #1764d8; box-shadow: 0 6px 22px #102b5033; }
+  .site:is(.button-primary, .button-outline, .text-link, .nav-cta, .site-footer button):hover svg { transform: translateX(4px); }
+  .top-nav > button:hover::before { transform: scaleX(1); }
+  .site .brand:hover .brand-symbol { transform: rotate(-8deg); box-shadow: 0 0 25px #1764d830; }
+  .site:is(.place, .component-grid article, .dossier-grid article, .lab-info-grid article):hover {
+    transform: translateY(-5px); background: #f0f6fd; border-color: #d1dfef; box-shadow: 0 14px 28px #102b5022;
+  }
+  .place:hover .place-icon { transform: translateY(-3px) rotate(-6deg); background: #1764d812; box-shadow: 0 0 22px #1764d815; }
+  .place:hover .place-arrow { transform: translate(3px, -3px); color: var(--green); }
+  .site .step:hover { transform: translateY(-4px); border-color: var(--green); }
+  .step:hover .step-top svg { transform: rotate(-8deg) scale(1.15); }
+  .site:is(.editorial-chart, .paper, .metric):hover { background: #f0f6fd; border-color: #d1dfef; }
+  .site:is(.camera-tabs button, .presets button):hover { background: #f0f6fd; color: #1764d8; }
+  .site .source-link:hover { color: #1764d8 !important; }
+}
+
+@keyframes page-enter { from { opacity: .5; } to { opacity: 1; } }
+@keyframes content-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes energy-breathe { 0%, 100% { opacity: .55; transform: scale(.94); } 50% { opacity: 1; transform: scale(1.12); } }
+@keyframes scroll-nudge { 0%, 70%, 100% { transform: translateY(0); } 35% { transform: translateY(5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .site .scroll-reveal { opacity: 1; translate: none; }
+  .site *, .site *::before, .site *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}
